@@ -308,11 +308,12 @@ class EbsHelper(object):
 
     def create_environment(self, env_name, version_label=None,
                            solution_stack_name=None, cname_prefix=None, description=None,
-                           option_settings=None, tier_name='WebServer', tier_type='Standard', tier_version='1.1'):
+                           option_settings=None, tier_name='WebServer', tier_type='Standard', tier_version='1.1',
+                           template_name=None):
         """
         Creates a new environment
         """
-        out("Creating environment: " + str(env_name) + ", tier_name:" + str(tier_name) + ", tier_type:" + str(tier_type))
+        out("Creating environment: " + str(env_name) + ", tier_name:" + str(tier_name) + ", tier_type:" + str(tier_type) + ", template_name:" + str(template_name))
         self.ebs.create_environment(self.app_name, env_name,
                                     version_label=version_label,
                                     solution_stack_name=solution_stack_name,
@@ -321,7 +322,8 @@ class EbsHelper(object):
                                     option_settings=option_settings,
                                     tier_type=tier_type,
                                     tier_name=tier_name,
-                                    tier_version=tier_version)
+                                    tier_version=tier_version,
+                                    template_name=template_name)
 
     def environment_exists(self, env_name):
         """

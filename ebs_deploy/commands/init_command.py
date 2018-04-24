@@ -36,6 +36,7 @@ def execute(helper, config, args):
                 tier_name=env_config.get('tier_name'),
                 tier_type=env_config.get('tier_type'),
                 tier_version=env_config.get('tier_version'),
+                template_name=env_config.get('template_name'),
                 version_label=args.version_label)
             environments_to_wait_for_green.append(env_name)
         else:
